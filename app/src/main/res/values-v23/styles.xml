@@ -1,12 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
 
-    <!-- No status bar dark icons and dark navigation bar as not supported
-    below api-21 -->
+
+    <!-- No dark navigation bar as not supported below api-27 -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
 </resources>
