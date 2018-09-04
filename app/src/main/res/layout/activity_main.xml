@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,28 +8,66 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/toolbarTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/app_name"
-                android:textStyle="bold"
-                android:textSize="@dimen/titleTextSize"
                 android:fontFamily="@font/google_sans"
-                />
+                android:text="@string/app_name"
+                android:textSize="@dimen/titleTextSize"
+                android:textStyle="bold" />
 
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:visibility="visible"
+        android:background="@color/white"
+        />
+
+    <ProgressBar
+        android:id="@+id/contentProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        />
+
+    <com.staqu.healthmonitoring.custom.FadingSnackbar
+        android:id="@+id/snackbar"
+        android:layout_width="@dimen/snackbar_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="@dimen/snackbar_margin_bottom_fab"
+        android:layout_marginEnd="@dimen/snackbar_margin_end_fab"
+        android:visibility="gone" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_normal"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/round_add_24"
+        app:fabSize="normal"
+        app:hoveredFocusedTranslationZ="0dp"
+        app:pressedTranslationZ="0dp"
+        android:layout_gravity="bottom|end"
+        />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

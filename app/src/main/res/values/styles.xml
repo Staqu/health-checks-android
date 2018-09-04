@@ -9,4 +9,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextAppearance.FadingSnackbarAction" parent="@style/TextAppearance.AppCompat.Button">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Health Monitoring</string>
+    <string name="ping_url_copied">Ping Url copied to clipboard.</string>
 </resources>

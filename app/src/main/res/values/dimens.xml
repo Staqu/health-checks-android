@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="titleTextSize">19sp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="textSizeSmall">13sp</dimen>
+
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+
+    <dimen name="snackbar_width">@dimen/match_parent</dimen>
+    <dimen name="snackbar_margin_end_fab">0dp</dimen>
+    <dimen name="snackbar_margin_bottom_fab">72dp</dimen>
+    <dimen name="snackbar_margin_bottom_bab">84dp</dimen>
+
+
+    <!-- per android.view.ViewGroup.LayoutParams -->
+    <item name="match_parent" format="integer" type="dimen">-1</item>
+    <item name="wrap_content" format="integer" type="dimen">-2</item>
+
 </resources>
