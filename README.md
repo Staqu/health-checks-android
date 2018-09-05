@@ -1,2 +1,2 @@
-# health-monitoring-android
-Staqu Health Monitoring (Cron Jobs) Android App.
+# health-monitoring-android [Under Development]
+Staqu Health Monitoring (Cron Jobs) Android App. 
