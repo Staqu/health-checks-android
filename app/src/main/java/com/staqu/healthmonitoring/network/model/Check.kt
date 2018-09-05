@@ -6,10 +6,11 @@ data class Check(
         var pause_url: String,
         var grace: Long,
         var n_pings: Long,
-        var next_ping: Long?,
+        var next_ping: String?,
         var timeout: Long,
-        var tags: String,
+        var tags: String?,
+        var schedule: String?,
         var status: String,
-        var last_ping: Long?,
+        var last_ping: String?,
         var name: String
 ) : BaseResponse()

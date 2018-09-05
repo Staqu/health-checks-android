@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Health Monitoring</string>
     <string name="ping_url_copied">Ping Url copied to clipboard.</string>
+    <string name="error_text_general">Failed to get checks!\nPlease check your internet connection.</string>
+    <string name="period_grace">Period\nGrace</string>
+    <string name="retry">Retry</string>
 </resources>

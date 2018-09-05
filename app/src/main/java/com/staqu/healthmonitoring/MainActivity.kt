@@ -3,11 +3,14 @@ package com.staqu.healthmonitoring
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.button.MaterialButton
 import com.staqu.healthmonitoring.custom.FadingSnackbar
 import com.staqu.healthmonitoring.network.ApiClient
 import com.staqu.healthmonitoring.network.ApiService
@@ -24,6 +27,9 @@ class MainActivity : AppCompatActivity(), RecyclerViewActionListener {
     lateinit var contentProgressBar: ProgressBar
     lateinit var recyclerView: RecyclerView
     lateinit var fadingSnackbar: FadingSnackbar
+    lateinit var errorView: LinearLayout
+    lateinit var refreshLayout: SwipeRefreshLayout
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,14 +41,27 @@ class MainActivity : AppCompatActivity(), RecyclerViewActionListener {
         fadingSnackbar = findViewById(R.id.snackbar)
         contentProgressBar = findViewById(R.id.contentProgressBar)
         recyclerView = findViewById(R.id.recyclerView)
+        errorView = findViewById(R.id.errorView)
+        refreshLayout = findViewById(R.id.refresh)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.addItemDecoration(CustomDividerItemDecoration(this, LinearLayoutManager.VERTICAL, 16))
+        refreshLayout.setOnRefreshListener {
 
-        getAllChecks()
+            getAllChecks(true)
+
+        }
+
+        findViewById<MaterialButton>(R.id.retryButton).setOnClickListener{
+            contentProgressBar.visibility = View.VISIBLE
+            errorView.visibility = View.GONE
+            getAllChecks(false)
+        }
+
+        getAllChecks(false)
     }
 
-    private fun getAllChecks() {
+    private fun getAllChecks(refresh: Boolean) {
 
         val apiService = ApiClient.getClient(applicationContext)!!
                 .create(ApiService::class.java)
@@ -56,12 +75,23 @@ class MainActivity : AppCompatActivity(), RecyclerViewActionListener {
                         // Received all checks
                         Log.d(Const.TAG, "All checks: " + checks.checks.toString())
                         contentProgressBar.visibility = View.GONE
+                        errorView.visibility = View.GONE
+                        if (refresh) refreshLayout.isRefreshing = false
+
+
                         setAdapter(checks.checks)
                     }
 
                     override fun onError(e: Throwable) {
                         // Network error
                         contentProgressBar.visibility = View.GONE
+
+                        if (refresh) refreshLayout.isRefreshing = false
+
+                        if (!refresh)
+                            errorView.visibility = View.VISIBLE
+                        else
+                            showFadingSnackbar(getString(R.string.error_text_general))
                         Log.d(Const.TAG, "Get checks error: " + e.localizedMessage)
                     }
                 })
@@ -92,12 +122,12 @@ class MainActivity : AppCompatActivity(), RecyclerViewActionListener {
         )
     }
 
-    override fun pingUrlCopied(message: String){
-        showFadingSnackbar(message)
+    override fun pingUrlCopied(message: String) {
+        //showFadingSnackbar(message)
     }
 
 }
 
-interface RecyclerViewActionListener{
+interface RecyclerViewActionListener {
     fun pingUrlCopied(message: String)
 }

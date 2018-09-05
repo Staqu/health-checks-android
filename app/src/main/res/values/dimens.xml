@@ -12,6 +12,8 @@
     <dimen name="snackbar_margin_end_fab">0dp</dimen>
     <dimen name="snackbar_margin_bottom_fab">72dp</dimen>
     <dimen name="snackbar_margin_bottom_bab">84dp</dimen>
+    <dimen name="contentTextSize">18sp</dimen>
+    <dimen name="margin_larger">40dp</dimen>
 
 
     <!-- per android.view.ViewGroup.LayoutParams -->

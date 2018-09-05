@@ -2,11 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:focusable="true"
     android:paddingBottom="@dimen/dimen_10"
     android:paddingLeft="@dimen/margin_normal"
+    android:minHeight="?listPreferredItemHeight"
     android:paddingRight="@dimen/margin_normal"
     android:paddingTop="@dimen/dimen_10">
 
@@ -16,42 +16,54 @@
         android:layout_height="wrap_content"
         android:alpha="0.5"
         android:layout_marginTop="@dimen/margin_small"
-        android:src="@drawable/twotone_check_circle_24"
+        android:src="@drawable/twotone_check_circle_new"
         />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/titleTextColor"
         android:fontFamily="@font/google_sans"
         android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginStart="@dimen/margin_small"
-        android:layout_toRightOf="@id/status"
-        android:textSize="@dimen/titleTextSize" />
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_toEndOf="@id/status"
+        android:textColor="@color/titleTextColor2"
+        android:textSize="@dimen/contentTextSize" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/tagChips"
+        android:layout_marginStart="@dimen/margin_larger"
+        android:layout_width="match_parent"
+        android:layout_below="@id/name"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_height="wrap_content">
+
+
+    </com.google.android.material.chip.ChipGroup>
+
 
     <TextView
-        android:id="@+id/pingUrl"
-        android:layout_width="match_parent"
+        android:id="@+id/periodHolder"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="@dimen/margin_larger"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name"
-        android:textSize="@dimen/textSizeSmall"
-        android:layout_marginEnd="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_small"
-        android:fontFamily="@font/google_sans"
+        android:text="@string/period_grace"
+        android:layout_below="@id/tagChips"
+        />
+
+    <TextView
+        android:id="@+id/scheduleGrace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:layout_alignTop="@id/periodHolder"
+        android:layout_toEndOf="@id/periodHolder"
         />
 
 
-    <ImageView
-        android:id="@+id/copy"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_below="@id/pingUrl"
-        android:layout_alignTop="@id/pingUrl"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_small"
-        android:src="@drawable/twotone_file_copy_24"
-        />
+
 
 
 </RelativeLayout>

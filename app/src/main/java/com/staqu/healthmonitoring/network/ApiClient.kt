@@ -57,6 +57,8 @@ class ApiClient {
                 // Adding Authorization token (API Key)
                 // Requests will be denied without API key
                 //if (!TextUtils.isEmpty(PrefUtils.getApiKey(context))) {
+
+                //requestBuilder.addHeader("X-Api-Key", "") ramankit.singh@staqu.com
                 requestBuilder.addHeader("X-Api-Key", "YOUR_API_KEY")
                 //}
 

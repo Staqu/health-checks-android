@@ -5,10 +5,14 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorAccentLight">#88FF4081</color>
     <color name="titleTextColor">#212121</color>
+    <color name="titleTextColor2">#313131</color>
 
     <color name="statusBarColor">#F5F5F5</color>
     <color name="navigationBarColor">#F5F5F5</color>
     <color name="white">#FFF</color>
+    <color name="green">#4caf50</color>
+    <color name="yellow">#ffc107</color>
+    <color name="red">#d32f2f</color>
 
 
     <array name="mdcolor_400">
@@ -51,5 +55,6 @@
         <item name="grey_500" type="color">#9e9e9e</item>
         <item name="blue_grey_500" type="color">#607d8b</item>
     </array>
+
 
 </resources>
